@@ -33,6 +33,11 @@ package src
 			//保存数据
 			//blabla是自定义的字符串，本地存储文件会以它来命名。 
 			var so:SharedObject = SharedObject.getLocal("suansu"); 
+			if (!CheckBox(this.type1).selected && !CheckBox(this.type2).selected && !CheckBox(this.type3).selected && !CheckBox(this.type4).selected
+				&& !CheckBox(this.type5).selected && !CheckBox(this.type6).selected && !CheckBox(this.type7).selected) {
+					//如果都没有选题型，则默认type1被选择
+					CheckBox(this.type1).selected = true;
+			}
 			so.data.type1 = CheckBox(this.type1).selected?1:0;
 			so.data.type2 = CheckBox(this.type2).selected?1:0;
 			so.data.type3 = CheckBox(this.type3).selected?1:0;
@@ -42,12 +47,12 @@ package src
 			so.data.type7 = CheckBox(this.type7).selected?1:0;
 			//so.data.type8 = CheckBox(this.type8).selected?1:0;
 			so.data.voice = CheckBox(this.voice).selected?1:0;
-			trace("===" + so.data.voice);
 			so.flush();
 		}
 		public function loaddata():Object {
 			var so:SharedObject = SharedObject.getLocal("suansu"); 
 			if (so == null) {
+				//如果第一次使用
 				if (!so.data.type1) so.data.type1 = 1;//默认
 				if (!so.data.type2) so.data.type2 = 1;//默认
 				if (!so.data.type3) so.data.type3 = 0;//默认
@@ -57,6 +62,10 @@ package src
 				if (!so.data.type7) so.data.type7 = 0;//默认
 				//if (!so.data.type8) so.data.type8 = 0;//默认
 				if (!so.data.voice) so.data.voice = 1;//默认打开声音
+			}
+			if (so.data.type1 + so.data.type2 + so.data.type3 + so.data.type4 + so.data.type5 + so.data.type6 + so.data.type7 == 0) {
+				//如果都没有选择，则默认type1被选择
+				so.data.type1 = 1;
 			}
 			CheckBox(this.type1).selected = so.data.type1 == 1?true:false;
 			CheckBox(this.type2).selected = so.data.type2 == 1?true:false;

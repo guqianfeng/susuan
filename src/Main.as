@@ -11,6 +11,8 @@ package src
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.events.TimerEvent;
+	import flash.filters.GlowFilter;
+	import flash.filters.GradientBevelFilter;
 	import flash.net.SharedObject;
 	import flash.ui.Mouse;
 	import flash.utils.Timer;
@@ -182,8 +184,8 @@ package src
 			questionSequence.push(data.type7);
 			//questionSequence.push(data.type8);
 			Config.isSound = data.voice == 1 ? true : false;
-			trace(String(questionSequence));
-			trace("是否发音: " + Config.isSound);
+			//trace(String(questionSequence));
+			//trace("是否发音: " + Config.isSound);
 		}
 		private function initTimer():void {
 			timer = new Timer(1000);
@@ -197,6 +199,7 @@ package src
 			btnSetup.x = screenWidth - 20;//放到距右边20个像素位置
 			btnSetup.y = screenHeight - btnSetup.height - 20;//距底边20个像素位置
 			this.addChild(btnSetup);
+			btnSetup.filters = [new GlowFilter(0xffffff, 1, 8, 8, 3, 2)];
 			btnSetup.addEventListener(MouseEvent.CLICK, onBtnConfigClickHandler);
 		}
 		private function initLog():void {
@@ -525,7 +528,6 @@ package src
 		}
 		private function start():void {
 			//从新开始
-			background.visible = false;
 			background2.visible = true;
 			loadSharedObject();
 			keyInput.visible = true;
@@ -567,6 +569,7 @@ package src
 		}
 		private function gotoFirstPage():void {
 			//回到首页
+			resetEachQuestionTimer(false);
 			timer.reset();
 			ttlSeconds = 0;
 			showActiveBar(0);
