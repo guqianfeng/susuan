@@ -88,6 +88,7 @@ package src
 			initKeyInput();
 			initInfoMc();
 			initSetupMc();
+			loadSharedObject();
 			initSetupButton();
 			initTimer();
 			//initLog();
@@ -521,6 +522,8 @@ package src
 				else className = "D" + sub;
 				var aClass:Class = getDefinitionByName(className) as Class;
 				var sprite:Sprite = new aClass();
+				sprite.width = sprite.width / 2;
+				sprite.height = sprite.height / 2;
 				sprite.x = re.width + jiange;//50是字符间隙
 				re.addChild(sprite);
 			}
