@@ -5,7 +5,7 @@
 
   <versionNumber>1.0.0</versionNumber>
 
-  <versionLabel> </versionLabel>
+  <versionLabel>1.0.0</versionLabel>
 
   <filename>Suansu_android</filename>
 
@@ -47,9 +47,23 @@
 
 
 
-  <!-- To localize the description, use the following format for the description element.<description><text xml:lang="en">English App description goes here</text><text xml:lang="fr">French App description goes here</text><text xml:lang="ja">Japanese App description goes here</text></description>-->
+  
 
-  <name>口算训练</name>
+
+
+  
+
+
+
+  
+
+
+
+  
+
+<!-- To localize the description, use the following format for the description element.<description><text xml:lang="en">English App description goes here</text><text xml:lang="fr">French App description goes here</text><text xml:lang="ja">Japanese App description goes here</text></description>-->
+
+  <name>速算王</name>
 
   
 
@@ -87,7 +101,21 @@
 
 
 
-  <!-- To localize the name, use the following format for the name element.<name><text xml:lang="en">English App name goes here</text><text xml:lang="fr">French App name goes here</text><text xml:lang="ja">Japanese App name goes here</text></name>-->
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+<!-- To localize the name, use the following format for the name element.<name><text xml:lang="en">English App name goes here</text><text xml:lang="fr">French App name goes here</text><text xml:lang="ja">Japanese App name goes here</text></name>-->
 
   <copyright/>
 
@@ -115,7 +143,14 @@
     
 
     
-<!-- several other properties... -->
+
+    
+
+    
+
+    
+
+    <!-- several other properties... -->
   </initialWindow>
 
   <icon>
@@ -137,13 +172,25 @@
 
       
 
+      
+
+      
+
+      
+
       <![CDATA[<manifest>
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.RECORD_AUDIO"/>
 </manifest>]]>
     </manifestAdditions>
   </android>
+
+
+
+
+
+
+
 
 
 
